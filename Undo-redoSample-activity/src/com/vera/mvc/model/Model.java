@@ -45,13 +45,18 @@ public class Model extends Observable {
         list = new ArrayList<>();
     }
 
-    public Model(MyShape sampleShape) {
+    private Model(MyShape sampleShape) {
         this.sampleShape = sampleShape;
         list = new ArrayList<>();
     }
 
      public static Model getInstance() {
         if (model == null) { model = new Model();}
+	return model;
+	}
+     
+     public static Model getInstance(MyShape shape) {
+        if (model == null) { model = new Model(shape);}
 	return model;
 	}
 
