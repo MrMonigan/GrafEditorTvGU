@@ -6,7 +6,7 @@
 package com.vera.mvc;
 
 import com.vera.mvc.Controller.Controller;
-import com.vera.mvc.Controller.Singleton;
+
 
 /**
  *
@@ -18,7 +18,7 @@ public class Mvc {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         Singleton singleton = Singleton.getInstance(new Controller());
+         new Controller();
     }
     
 }
