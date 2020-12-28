@@ -5,6 +5,7 @@
  */
 package com.vera.mvc.model;
 
+import com.vera.mvc.Controller.Controller;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
@@ -29,16 +30,18 @@ import java.util.logging.Logger;
  * @author Wera
  */
 public class Model extends Observable {
-
+    
+    private static Model model = null;
+    
     MyShape currentShape = null;
     MyShape sampleShape;
     ArrayList<MyShape> list;
-
+    
     public void setSampleShape(MyShape sampleShape) {
         this.sampleShape = sampleShape;
     }
 
-    public Model() {
+    private Model() {
         list = new ArrayList<>();
     }
 
@@ -46,6 +49,12 @@ public class Model extends Observable {
         this.sampleShape = sampleShape;
         list = new ArrayList<>();
     }
+
+     public static Model getInstance() {
+        if (model == null) { model = new Model();}
+	return model;
+	}
+
 
     public MyShape inintCurrentShape() {
         currentShape = sampleShape.clone();
